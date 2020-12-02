@@ -1,10 +1,4 @@
-from pathlib import Path
-from typing import List
-
-
-def get_input(path):
-    with open(path) as f:
-        return [int(line) for line in f.readlines()]
+from utils import read_input
 
 
 def solver(total, seq):
@@ -32,13 +26,9 @@ def solve_part_two(total, seq):
 
 
 def main():
-    BASE_DIR = Path(__file__).parent
-    input_path = BASE_DIR.joinpath('input', 'day1', 'input.txt')
-    test_path = BASE_DIR.joinpath('input', 'day1', 'test.txt')
+    input_seq = [int(ch) for ch in read_input('day1', 'input.txt')]
+    test_seq = [int(ch) for ch in read_input('day1', 'test.txt')]
     total = 2020
-
-    input_seq = get_input(input_path)
-    test_seq = get_input(test_path)
 
     assert solve_part_one(total, test_seq) == 514579
     print('part one result: ', solve_part_one(total, input_seq))
