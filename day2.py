@@ -4,7 +4,8 @@ from utils import read_input
 
 
 def is_valid(line, valid_func):
-    lowest, highest, char, pwd = re.findall(r'(\d+)-(\d+) (\w+): (\w+)', line)[0]
+    lowest, highest, char, pwd = re.findall(
+        r'(\d+)-(\d+) (\w+): (\w+)', line)[0]
     lowest = int(lowest)
     highest = int(highest)
 
@@ -16,7 +17,7 @@ def valid_part_one(lowest, highest, char, pwd):
 
 
 def valid_part_two(lowest, highest, char, pwd):
-    return ((pwd[lowest - 1] + pwd[highest - 1]).count(char) == 1 
+    return ((pwd[lowest - 1] + pwd[highest - 1]).count(char) == 1
             if len(pwd) >= max(highest, lowest) else False)
 
 
@@ -32,7 +33,7 @@ def main():
     input_seq = read_input('day2', 'input.txt')
     test_seq = read_input('day2', 'test.txt')
 
-    assert solve_part_one(test_seq)==2
+    assert solve_part_one(test_seq) == 2
     print('part one result: ', solve_part_one(input_seq))
 
     assert solve_part_two(test_seq) == 1
