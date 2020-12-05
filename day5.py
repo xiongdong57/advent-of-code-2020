@@ -21,7 +21,9 @@ def solve_part_one(seq):
 
 def solve_part_two(seq):
     located_ids = set(locate(board.strip()) for board in seq)
-    free_ids = set(i * 8 + j for i in range(127) for j in range(7)) - located_ids
+    free_ids = set(i * 8 + j for i in range(127) for j in range(7)) - \
+        located_ids
+
     for c_id in free_ids:
         if ((c_id - 1) in located_ids) & ((c_id + 1) in located_ids):
             return c_id
