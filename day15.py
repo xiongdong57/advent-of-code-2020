@@ -27,11 +27,10 @@ def solve_part_two(seq):
     for i in range(len(seq) - 1, 30000000):
         last_num = seq[-1]
         if last_num not in mem:
-            mem[seq[i - 1]] = i - 1
             seq.append(0)
         else:
-            mem[seq[i - 1]] = i - 1
             seq.append(i - mem[last_num])
+        mem[seq[i]] = i
     return seq[30000000 - 1]
 
 
