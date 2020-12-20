@@ -21,6 +21,8 @@ def solve_part_two(total, seq):
         try:
             num_b, num_c = solver(total - num_a, seq[i:])
             return num_a * num_b * num_c
+        except Exception:
+            pass
 
 
 def main():
